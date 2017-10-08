@@ -7,6 +7,7 @@ export function middleware(req: Request, res: Response, next: NextFunction) {
     if (!req.session) {
         throw "Must have session to use flash message";
     }
+
     session = req.session;
     locals = res.locals;
 
@@ -21,13 +22,14 @@ export function flash(type: string, content: string) {
     if (session.flash === undefined) {
         session.flash = {};
     }
+
     session.flash[type] = content;
 }
 
-export function reflash(type: string) {
-    session.flash[type] = locals.flash[type];
-}
-
-export function reFlashAll() {
+export function reFlashAll(cleanUp: boolean = false) {
     session.flash = locals.flash;
+
+    if (cleanUp) {
+        locals.flash = undefined;
+    }
 }

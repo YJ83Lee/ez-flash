@@ -1,3 +1,6 @@
 .idea
 tsconfig.json
 src
+node_module
+test
+.npmrc
