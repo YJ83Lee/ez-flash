@@ -1,0 +1,16 @@
+{
+  "name": "ez-flash",
+  "version": "0.0.4",
+  "description": "Flash message for Express.js 4.x using session",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "author": {
+    "name": "Yenju Lee",
+    "email": "yenju83lee@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YJ83Lee/ez-flash"
+  }
+}
