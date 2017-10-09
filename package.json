@@ -18,9 +18,11 @@
     "@types/express-session": "1.15.3",
     "@types/mocha": "2.2.42",
     "@types/supertest": "2.0.3",
-    "mocha": "3.5.0",
+    "body-parser": "^1.18.2",
     "express": "4.15.2",
     "express-session": "1.15.5",
+    "mocha": "3.5.0",
+    "pug": "^2.0.0-rc.4",
     "supertest": "3.0.0"
   },
   "scripts": {

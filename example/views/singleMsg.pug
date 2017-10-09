@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1= title
+    form.form-horizontal(action='/singleMsg' method='post')
+        .form-group
+            label.col-sm-2(for='message') flash message:
+            .col-sm-10
+                input.form-control(type='text' name='message' id='message' placeholder='flash message of type=message')
+        .form-group
+            .col-sm-offset-2.col-sm-10
+                input.btn.btn-default(type='submit' name='submit' value='post')
+
+
+

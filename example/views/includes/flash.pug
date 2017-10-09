@@ -1,0 +1,6 @@
+if flash
+    each content, type in flash
+        if type === 'success' || type === 'info' || type === 'warning' || type === 'danger'
+            div(class="alert alert-" + type)= content
+        else
+            h2 flash message: #{content}

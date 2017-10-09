@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    h1= title
+    form.form-horizontal(action='/multipleMsg' method='post')
+        .form-group
+            label.col-sm-2(for='success') success:
+            .col-sm-10
+                input.form-control(type='text' name='success' id='success' placeholder='flash message of type=success')
+        .form-group
+            label.col-sm-2(for='info') info:
+            .col-sm-10
+                input.form-control(type='text' name='info' id='info' placeholder='flash message of type=info')
+        .form-group
+            label.col-sm-2(for='warning') warning:
+            .col-sm-10
+                input.form-control(type='text' name='warning' id='warning' placeholder='flash message of type=warning')
+        .form-group
+            label.col-sm-2(for='danger') danger:
+            .col-sm-10
+                input.form-control(type='text' name='danger' id='danger' placeholder='flash message of type=danger')
+        .form-group
+            .col-sm-offset-2.col-sm-10
+                input.btn.btn-default(type='submit' name='submit' value='post')
+
+
+

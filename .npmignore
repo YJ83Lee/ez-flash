@@ -4,3 +4,4 @@ src
 node_module
 test
 .npmrc
+example
