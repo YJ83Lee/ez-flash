@@ -4,6 +4,7 @@ An easy flash message middleware for Express.js 4.x
 ## Table of Content
 - [Usage](#usage)
 - [How it works](#how-it-works)
+- [Test](#test)
 - [Special thanks](#special-thanks)
 
 ## Usage
@@ -12,7 +13,7 @@ An easy flash message middleware for Express.js 4.x
 $ npm install ez-flash
 ````
 ### Use
-see example folder for a complete example with express.js
+see [example folder](https://github.com/YJ83Lee/ez-flash/tree/master/example) for a complete example with express.js
 
 #### Setup
 example/index.ts
@@ -85,6 +86,13 @@ Init ``req.session.flash`` if needed, then set ``req.session.flash.type = messag
 ``req.session.flash = res.locals.flash``, makes the flash message available for the next response.
 
 ``req.locals.flash`` will be deleted if ``cleaUp = true``.
+## Tests
+````bash
+$ tsc
+$ tsc test/test.ts
+$ npm test
+````
+
 ## Special thanks
 [Laravel flash data](https://laravel.com/docs/5.5/session#flash-data) for the desired function and syntax.
 
