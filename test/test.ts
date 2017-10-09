@@ -1,5 +1,7 @@
 import flash = require('./../dist/ez-flash');
 
+import {Request, Response, NextFunction} from 'express';
+
 import express = require('express');
 import session = require('express-session');
 import request = require('supertest');
@@ -8,22 +10,22 @@ const typeMsgs = [
     {type: 'success', message: 'success message'},
     {type: 'info', message: 'info message'}
 ];
-let nonEmptyFlashMsg = {};
+let nonEmptyFlashMsg: { [index:string] : string } = {};
 for (const typeMsg of typeMsgs) {
     nonEmptyFlashMsg[typeMsg.type] = typeMsg.message;
 }
 
-function setupFlashMsgs(req, res, next) {
+function setupFlashMsgs(req: Request, res: Response, next: NextFunction) {
     for (const typeMsg of typeMsgs) {
         flash.flash(typeMsg.type, typeMsg.message);
     }
     next();
 }
 
-function setupReqSessionFlash(req, res, next) {
-    req.session.flash = {};
+function setupReqSessionFlash(req: Request, res: Response, next: NextFunction) {
+    req.session!.flash = {};
     for (let typeMsg of typeMsgs) {
-        req.session.flash[typeMsg.type] = typeMsg.message;
+        req.session!.flash[typeMsg.type] = typeMsg.message;
     }
     next();
 }
@@ -37,7 +39,7 @@ const sessionObj = session({
 const getRouter = express.Router();
 
 getRouter.get('/reqSessionFlash', (req, res) => {
-    res.status(200).json({flash: req.session.flash});
+    res.status(200).json({flash: req.session!.flash});
 });
 
 getRouter.get('/resLocalsFlash', (req, res) => {
