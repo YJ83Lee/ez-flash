@@ -1,1 +1,1 @@
-export * from './ez-flash'
+export * from './ez-flash';
