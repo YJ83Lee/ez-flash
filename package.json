@@ -31,5 +31,10 @@
   },
   "scripts": {
     "test": "tsc; tsc test/test.ts; mocha"
-  }
+  },
+  "keywords": [
+    "flash",
+    "messages",
+    "express"
+  ]
 }
