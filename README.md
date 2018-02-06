@@ -75,17 +75,14 @@ each content, type in flash
 ````
 ## How it works
 ### flash(type, message)
-Init ``req.session.flash`` if needed, then set ``req.session.flash.type = message``.
+Init ``session.flash`` if needed, then save the flash message to it.
 
 ### middleware()
-``req.session.flash = res.locals.flash``, so we can access the flash message in the view with ``flash`` object.
-
-``delete req.session.flash`` so the flash message will not in following responses after the current one.
+Move the flash message from locals to session so we can access the flash message in the view with ``flash`` object.
 
 ### reFlashAll(cleanUp = false)
-``req.session.flash = res.locals.flash``, makes the flash message available for the next response.
-
-``req.locals.flash`` will be deleted if ``cleaUp = true``.
+Copy the flash message from locals to session, making the flash message available for the next response.
+The message in locals will be deleted (not shown this time) if ``cleaUp = true``.
 ## Tests
 ````bash
 $ tsc
