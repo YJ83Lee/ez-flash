@@ -1,6 +1,6 @@
 {
   "name": "ez-flash",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Flash message for Express.js 4.x using session",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
