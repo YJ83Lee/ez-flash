@@ -16,34 +16,34 @@ $ npm install ez-flash
 see [example folder](https://github.com/YJ83Lee/ez-flash/tree/master/example) for a complete example with express.js
 
 #### Setup
-example/index.ts
-````typescript
-import express = require('express');
-import bodyParser = require('body-parser');
-import session = require('express-session');
-import flash = require('ez-flash');
+example/index.js
+````javascript
+var express = require('express');
+var bodyParser = require('body-parser');
+var session = require('express-session');
+var flash = require('ez-flash');
+var app = express();
 
-const app = express();
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(session({secret: 'my secret', resave: false, saveUninitialized: true}));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({ secret: 'my secret', resave: false, saveUninitialized: true }));
 app.use(flash.middleware);
 ````
 
 #### Basic Usage
 ##### flash a message
-example/index.ts
-````typescript
-app.post('/singleMsg', (req, res) => {
-    flash.flash('message', req.body.message);
-    res.redirect('/');
+example/index.js
+````javascript
+app.post('/singleMsg', function (req, res) {
+  flash.flash('message', req.body.message);
+  res.redirect('/');
 });
 ````
 ##### re-flash after more than one redirect
-example/index.ts
-````typescript
-app.get('/', (req, res) => {
-    flash.reFlashAll();
-    res.redirect('/singleMsg');
+example/index.js
+````javascript
+app.get('/', function (req, res) {
+  flash.reFlashAll();
+  res.redirect('/singleMsg');
 });
 ````
 ##### show the flash message
@@ -55,16 +55,17 @@ each content, type in flash
 
 #### Combining Bootstrap Alert
 ##### flash multiple messages
-example/index.ts
-````typescript
-app.post('/multipleMsg', (req, res) => {
-    for (const msgType of ['success', 'info', 'warning', 'danger']) {
-        if (req.body[msgType]) {
-            flash.flash(msgType, req.body[msgType]);
-        }
+example/index.js
+````javascript
+app.post('/multipleMsg', function (req, res) {
+  var msgTypes = ['success', 'info', 'warning', 'danger'];
+  for (var i = 0; i < msgTypes.length; ++i) {
+    if (req.body[msgTypes[i]]) {
+      flash.flash(msgTypes[i], req.body[msgTypes[i]]);
     }
-    res.redirect('/multipleMsg');
-});
+  }
+  res.redirect('/multipleMsg');
+})
 ````
 ##### render
 example/flash.pug
